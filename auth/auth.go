@@ -1,10 +1,9 @@
 // GO AUTH PRACTICE
 // in the theme  of today, fuck it we tryin authorization in go.
 
-package main
+package Auth
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/markbates/goth"
@@ -12,17 +11,12 @@ import (
 	"github.com/markbates/goth/providers/spotify"
 )
 
-func main() {
-	fmt.Println("we out here lmao")
-	authApp()
-}
-
 // authorize app through spotify
-func authApp() {
+func AuthApp() {
 
 	// I. get client ID + client Secret from env.go
-	clientID := Auth().CLIENT_ID
-	clientSecret := Auth().CLIENT_SECRET
+	clientID := Env().CLIENT_ID
+	clientSecret := Env().CLIENT_SECRET
 
 	// II. create provider for spotify
 	goth.UseProviders(

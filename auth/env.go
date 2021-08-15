@@ -1,4 +1,4 @@
-package main
+package Auth
 
 import (
 	"fmt"
@@ -8,19 +8,21 @@ import (
 	"github.com/joho/godotenv"
 )
 
+// structs
 type UserENV struct {
 	CLIENT_ID     string
 	CLIENT_SECRET string
 }
 
+// error handles SPECIFIC to Auth
 func errorHandler(err error) {
 	if err != nil {
 		log.Fatal("something went wrong with the function: ENV -> ", err)
 	}
 }
 
-// Auth handles the parsing of the apps env files.
-func Auth() *UserENV {
+// Env handles the parsing of the apps env files.
+func Env() *UserENV {
 
 	err := godotenv.Load()
 	errorHandler(err)
